@@ -1,6 +1,4 @@
 ﻿
-using Catalog.API.Products.GetProducts;
-
 namespace Catalog.API.Products.DeleteProduct
 {
     public record DeleteProductRequest(Guid Id);
@@ -18,7 +16,7 @@ namespace Catalog.API.Products.DeleteProduct
                 return Results.Ok(response);
             })
             .WithName("DeleteProduct")
-            .Produces<GetProductsResponse>(StatusCodes.Status200OK)
+            .Produces<DeleteProductResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Delete Product")
