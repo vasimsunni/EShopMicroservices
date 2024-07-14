@@ -21,16 +21,16 @@ namespace Ordering.Infrastructure.Data.Interceptors
         {
             if (context == null) return;
 
-            var aggregares = context.ChangeTracker
+            var aggregates = context.ChangeTracker
                 .Entries<IAggregate>()
                 .Where(a => a.Entity.DomainEvents.Any())
                 .Select(a => a.Entity);
 
-            var domainEvents = aggregares
+            var domainEvents = aggregates
                 .SelectMany(a => a.DomainEvents)
                 .ToList();
 
-            aggregares.ToList().ForEach(a => a.ClearDomainEvents());
+            aggregates.ToList().ForEach(a => a.ClearDomainEvents());
 
             foreach (var domainEvent in domainEvents)
                 await mediator.Publish(domainEvent);
