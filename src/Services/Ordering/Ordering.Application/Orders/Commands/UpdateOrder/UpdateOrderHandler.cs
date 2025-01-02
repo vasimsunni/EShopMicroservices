@@ -1,7 +1,7 @@
 ﻿
 namespace Ordering.Application.Orders.Commands.UpdateOrder
 {
-    public class UpdateOrderHandler
+    public class UpdateOrderCommandHandler
         (IApplicationDbContext dbContext)
         : ICommandHandler<UpdateOrderCommand, UpdateOrderResult>
     {

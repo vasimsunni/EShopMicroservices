@@ -2,7 +2,7 @@
 
 namespace Ordering.Application.Orders.Queries.GetOrders
 {
-    public class GetOrdersHandler
+    public class GetOrdersQueryHandler
         (IApplicationDbContext dbContext)
         : IQueryHandler<GetOrdersQuery, GetOrdersResult>
     {
@@ -29,9 +29,6 @@ namespace Ordering.Application.Orders.Queries.GetOrders
                    pageSize,
                    totalCount,
                    orders.ToOrderDtoList()));
-
-
-            throw new NotImplementedException();
         }
     }
 }
